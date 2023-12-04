@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1701211133.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pero que tenemos aquí... ¡¡¡Jojojojojo!!! \nLo siento pequeñín, pero ese arbol de ahí se ha caido el solito, yo no lo he tocado. Por suerte para ti, estaba de paso y justo iba a apartarlo, pero me duele un poco la espalda, ¿sabes? \nMejor vuelve un poco más tarde, he visto que en el norte hay algún monstruo que puedes matar para hacer algo de tiempo ¡¡¡Jojojojojo!!!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5",
+		"file": "timeline-1701211229.json",
+		"name": "timeline-1"
+	}
+}
