@@ -81,12 +81,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Mi RPG"
-run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
+run/main_scene="res://Menu.tscn"
 
 [autoload]
 
 PlayerStats="*res://Player/PlayerStats.tscn"
+Transition="*res://Transition.tscn"
 
 [display]
 
@@ -183,6 +184,7 @@ roll={
 2d_physics/layer_3="PlayerHurtbox"
 2d_physics/layer_4="EnemyHurtbox"
 2d_physics/layer_5="Enemy"
+2d_physics/layer_6="SoftCollisions"
 
 [locale]
 
