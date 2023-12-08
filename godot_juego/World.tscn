@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Enemies/Chicken.tscn" type="PackedScene" id=11]
 [ext_resource path="res://NPC_s/NPC1.tscn" type="PackedScene" id=12]
 [ext_resource path="res://AreaSuperior2D.gd" type="Script" id=13]
+[ext_resource path="res://World/Grass.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=15]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -515,7 +517,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 b = Vector2( 52, 0 )
 
 [node name="World" type="Node2D"]
-scale = Vector2( 3.2, 3.33 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -535,49 +536,99 @@ tile_data = PoolIntArray( 327679, 0, 0, 262144, 0, 1, 262145, 0, 1, 262146, 0, 1
 [node name="DirtCliffMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 cell_size = Vector2( 32, 32 )
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 1, -65535, 1, 1, -65534, 1, 1, -65533, 1, 1, -65532, 1, 2, -65529, 1, 0, -65528, 1, 1, -65527, 1, 1, -65526, 1, 2, 65535, 1, 65536, 0, 1, 65537, 1, 1, 65541, 2, 1, 131073, 3, 1, 131073, 4, 1, 131074, 7, 1, 131072, 8, 1, 65542, 9, 1, 65537, 10, 1, 65538, 131071, 1, 131072, 65536, 1, 131073, 65537, 1, 131074, 65544, 1, 131072, 65545, 1, 65542, 65546, 1, 65538, 131081, 1, 131072, 131082, 1, 131074, 327679, 1, 0, 262144, 1, 1, 262145, 1, 1, 262146, 1, 2, 262153, 1, 0, 262154, 1, 2, 393215, 1, 65536, 327680, 1, 65537, 327681, 1, 65537, 327682, 1, 131077, 327683, 1, 2, 327688, 1, 0, 327689, 1, 131078, 327690, 1, 65538, 458751, 1, 131072, 393216, 1, 131073, 393217, 1, 131073, 393218, 1, 131073, 393219, 1, 131074, 393224, 1, 131072, 393225, 1, 131073, 393226, 1, 131074 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Player" parent="YSort" groups=["area_superior2d"] instance=ExtResource( 2 )]
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 8, 80 )
-
-[node name="Bush" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 88, 48 )
-
-[node name="Bush2" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 56, 112 )
-
-[node name="Bush3" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 200, 88 )
-
-[node name="Bush4" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 224, 32 )
-
-[node name="Bush5" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 120, 136 )
-
-[node name="Bush6" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 256, 136 )
-
-[node name="Cartel_madera" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 190, 111 )
-
-[node name="Tocon_hacha" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 261, 88 )
-
-[node name="Tronco_caido" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 287, 111 )
-
-[node name="Tocon" parent="YSort" instance=ExtResource( 9 )]
-position = Vector2( 160, 60 )
-
-[node name="Tocon2" parent="YSort" instance=ExtResource( 9 )]
-position = Vector2( 196, 167 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="NPC1" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 268, 112 )
+
+[node name="Bushes" type="YSort" parent="YSort"]
+
+[node name="Bush" parent="YSort/Bushes" instance=ExtResource( 1 )]
+position = Vector2( 88, 48 )
+
+[node name="Bush2" parent="YSort/Bushes" instance=ExtResource( 1 )]
+position = Vector2( 56, 112 )
+
+[node name="Bush3" parent="YSort/Bushes" instance=ExtResource( 1 )]
+position = Vector2( 200, 88 )
+
+[node name="Bush4" parent="YSort/Bushes" instance=ExtResource( 1 )]
+position = Vector2( 224, 32 )
+
+[node name="Bush5" parent="YSort/Bushes" instance=ExtResource( 1 )]
+position = Vector2( 120, 136 )
+
+[node name="Bush6" parent="YSort/Bushes" instance=ExtResource( 1 )]
+position = Vector2( 256, 136 )
+
+[node name="Grass" type="YSort" parent="YSort"]
+position = Vector2( 96, 145 )
+
+[node name="Grass" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 19, 0 )
+
+[node name="Grass2" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 33, 19 )
+
+[node name="Grass3" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( -90, -33 )
+
+[node name="Grass4" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( -73, -33 )
+
+[node name="Grass5" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 9, -111 )
+
+[node name="Grass6" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 28, -110 )
+
+[node name="Grass7" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 174, -79 )
+
+[node name="Grass8" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 143, -110 )
+
+[node name="Grass9" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 175, 0 )
+
+[node name="Grass10" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 158, 0 )
+
+[node name="Grass11" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 140, 0 )
+
+[node name="Grass12" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 139, 17 )
+
+[node name="Grass13" parent="YSort/Grass" instance=ExtResource( 14 )]
+position = Vector2( 2, 0 )
+
+[node name="ObjetosVarios" type="YSort" parent="YSort"]
+
+[node name="Cartel_madera" parent="YSort/ObjetosVarios" instance=ExtResource( 6 )]
+position = Vector2( 190, 111 )
+
+[node name="Tocon_hacha" parent="YSort/ObjetosVarios" instance=ExtResource( 7 )]
+position = Vector2( 261, 88 )
+
+[node name="Tronco_caido" parent="YSort/ObjetosVarios" instance=ExtResource( 8 )]
+position = Vector2( 287, 111 )
+
+[node name="Tocon" parent="YSort/ObjetosVarios" instance=ExtResource( 9 )]
+position = Vector2( 160, 60 )
+
+[node name="Tocon2" parent="YSort/ObjetosVarios" instance=ExtResource( 9 )]
+position = Vector2( 196, 167 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 419, -26 )
@@ -597,3 +648,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 50 )
+
+[node name="Bat" parent="." instance=ExtResource( 15 )]
+position = Vector2( 110, 81 )
